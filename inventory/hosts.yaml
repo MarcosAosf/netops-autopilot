@@ -1,0 +1,38 @@
+# Inventário Multi-Vendor de Equipamentos de Rede
+switches:
+  - hostname: sw-core-cat3850
+    ip: 192.168.10.1
+    device_type: cisco_ios
+    vendor: Cisco
+    model: Catalyst 3850
+    role: Core
+    secret: Cisco123!
+    username: admin
+
+  - hostname: sw-dist-cat2960
+    ip: 192.168.10.2
+    device_type: cisco_ios
+    vendor: Cisco
+    model: Catalyst 2960X
+    role: Distribution
+    secret: Cisco123!
+    username: admin
+
+routers:
+  - hostname: rtr-edge-isr4331
+    ip: 192.168.1.1
+    device_type: cisco_ios
+    vendor: Cisco
+    model: ISR 4331
+    role: Gateway Edge
+    secret: Cisco123!
+    username: admin
+
+  - hostname: rtr-branch-mikrotik
+    ip: 192.168.20.1
+    device_type: mikrotik_routeros
+    vendor: Mikrotik
+    model: CCR1009
+    role: Branch Office
+    secret: AdminRouterOS!
+    username: admin

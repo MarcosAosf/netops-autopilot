@@ -1,0 +1,25 @@
+! ====================================================================
+! Template Jinja2: Provisionamento Automático de VLANs e Port-Security
+! Gerado via NetOps-AutoPilot para {{ hostname }}
+! ====================================================================
+
+vlan {{ vlan_id }}
+ name {{ vlan_name }}
+ state active
+!
+interface range {{ interface_range }}
+ description {{ vlan_name }} - {{ department }}
+ switchport mode access
+ switchport access vlan {{ vlan_id }}
+ switchport nonegotiate
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ ! Hardening: Port-Security contra ataques de MAC Flooding
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ no shutdown
+!
+end
+write memory
